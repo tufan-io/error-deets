@@ -12,6 +12,8 @@
             true,
             "spaces"
         ],
+        "no-use-before-declare": false,
+        "no-unused-variable": false,
         "no-internal-module": true,
         "typedef-whitespace": [
             true,

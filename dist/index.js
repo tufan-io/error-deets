@@ -9,7 +9,9 @@ class ErrorDeets extends Error {
         }, opts);
         this.details = details;
         this.code = code;
+        // Set the prototype explicitly.
         Object.setPrototypeOf(this, ErrorDeets.prototype);
     }
 }
 exports.ErrorDeets = ErrorDeets;
+//# sourceMappingURL=index.js.map

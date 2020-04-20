@@ -1,5 +1,5 @@
 
-import { test } from 'ava';
+import test from 'ava';
 import { ErrorDeets as Error } from '..';
 
 test('Use as simple error', t => {
