@@ -2,14 +2,7 @@
 
 <!-- badge -->
 [![npm license](https://img.shields.io/npm/l/error-deets.svg)](https://www.npmjs.com/package/error-deets)
-[![travis status](https://img.shields.io/travis/sramam/error-deets.svg)](https://travis-ci.org/sramam/error-deets)
-[![Build status](https://ci.appveyor.com/api/projects/status/90am2usst4qeutgi?svg=true)](https://ci.appveyor.com/project/sramam/error-deets)
-[![Coverage Status](https://coveralls.io/repos/github/sramam/error-deets/badge.svg?branch=master)](https://coveralls.io/github/sramam/error-deets?branch=master)
-[![David](https://david-dm.org/sramam/error-deets/status.svg)](https://david-dm.org/sramam/error-deets)
-[![David](https://david-dm.org/sramam/error-deets/dev-status.svg)](https://david-dm.org/sramam/error-deets?type=dev)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-
+[![Build status](https://tufan-io.github.io/node-starter/ci/badge/build.svg)](https://github.com/tufan-io/node-starter/actions)
 [![NPM](https://nodei.co/npm/error-deets.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/error-deets/)
 <!-- endbadge -->
 
@@ -26,7 +19,7 @@ There are a few good reasons to add these fields to a standard error object.
 
 3. In most cases of error, passing an error message with some details from the execution context suffices to provide debuggable hints. Further, using logging solutions like winston, it's easy to log these to any log collector. `log.error(err.message, err.details);`
 
-Ooh, and this is developed in TypeScript, because it rocks! However that's not a "good reason". It IS good though! ;)
+Ooh, and this is developed in TypeScript, because it rocks!
 
 ## Installation
 
@@ -62,6 +55,7 @@ try {
 ## Development Tooling
 
 - [Development tooling](./docs/DevTools.md)
+[CLOC reports](./.docs/cloc.md)
 - [Changelog](./CHANGELOG.md)
 
 ## License
