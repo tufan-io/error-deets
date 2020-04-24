@@ -9,16 +9,16 @@
     "details",
     "log"
   ],
-  "homepage": "https://github.com/sramam/error-deets#readme",
+  "homepage": "https://github.com/tufan-io/error-deets#readme",
   "bugs": {
-    "url": "https://github.com/sramam/error-deets/issues"
+    "url": "https://github.com/tufan-io/error-deets/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sramam/error-deets.git"
+    "url": "git+https://github.com/tufan-io/error-deets.git"
   },
   "license": "Apache-2.0",
-  "author": "Shishir Ramam",
+  "author": "tufan.io",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -28,7 +28,7 @@
   "scripts": {
     "build": "npm-run-batch",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "check-coverage": "nyc check-coverage",
+    "check-coverage": "nyc check-coverage -x .tmp",
     "check-run-scripts": "run-batch",
     "checks": "run-batch",
     "clean": "rimraf dist .nyc_output coverage *.tsbuildinfo",
@@ -62,6 +62,7 @@
     "test": "cross-env NODE_ENV=test nyc -r lcov -r text-summary -r json-summary ava --verbose",
     "test-no-cover": "cross-env NODE_ENV=test ava --verbose",
     "todos": "leasot --exit-nicely --skip-unsupported ./src",
+    "todos-md": "leasot --exit-nicely --skip-unsupported --reporter markdown ./src> ./docs/TODOs.md",
     "upgrade_": "npm upgrade"
   },
   "husky": {
@@ -77,57 +78,48 @@
   },
   "ava": {
     "files": [
-      "dist/test/*.js",
       "dist/**/test.js",
       "dist/**/test/**/*.js",
       "!dist/**/test/fixtures/**/*.js",
-      "!dist/**/helpers/**"
-    ],
-    "serial": false
+      "!dist/**/helpers/**",
+      "!.tmp"
+    ]
   },
   "nyc": {
-    "branches": 100,
     "exclude": [
       "**/test/**",
-      "**/helpers/**"
+      "**/helpers/**",
+      ".tmp/**"
     ],
     "extension": [
       ".ts",
       ".tsx"
     ],
-    "functions": 100,
-    "lines": 100,
-    "statements": 100
+    "watermarks": {
+      "branches": [
+        100,
+        100
+      ],
+      "functions": [
+        100,
+        100
+      ],
+      "lines": [
+        100,
+        100
+      ],
+      "statements": [
+        100,
+        100
+      ]
+    }
   },
   "dependencies": {},
-  "devDependencies": {
-    "@types/node": "^13.13.0",
-    "ava": "^3.7.1",
-    "cloc": "^2.5.1",
-    "commitizen": "^4.0.4",
-    "conventional-changelog-cli": "^2.0.31",
-    "cross-env": "^7.0.2",
-    "cz-conventional-changelog": "^3.1.0",
-    "dependency-check": "^4.1.0",
-    "git-mods": "^1.0.10",
-    "husky": "^4.2.5",
-    "leasot": "^10.2.0",
-    "madge": "^3.8.0",
-    "npm-run-batch": "0.0.9",
-    "nyc": "^15.0.1",
-    "pkg-ok": "^2.3.1",
-    "rimraf": "^3.0.2",
-    "sort-package-json": "^1.42.0",
-    "tslint": "^6.1.1",
-    "tslint-config-security": "^1.16.0",
-    "tslint-sonarts": "^1.9.0",
-    "typescript": "^3.8.3",
-    "typescript-formatter": "^7.2.2",
-    "typestrict": "^1.0.2",
-    "which": "^2.0.2"
-  },
   "engines": {
     "node": ">=13.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "run-batch": {
     "build": [
@@ -138,7 +130,8 @@
       "test",
       "no-circular-deps",
       "cloc",
-      "todos"
+      "todos",
+      "todos-md"
     ],
     "qt": [
       "compile",
@@ -187,5 +180,12 @@
       "pre-push-hook",
       "dependency-upgrade"
     ]
+  },
+  "private": false,
+  "simple-ci": {
+    "version": "0.2.17"
+  },
+  "devDependencies": {
+    "@tufan-io/simple-ci": "^0.2.17"
   }
 }

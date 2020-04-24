@@ -2,7 +2,7 @@
 
 <!-- badge -->
 [![npm license](https://img.shields.io/npm/l/error-deets.svg)](https://www.npmjs.com/package/error-deets)
-[![Build status](https://tufan-io.github.io/node-starter/ci/badge/build.svg)](https://github.com/tufan-io/node-starter/actions)
+[![action-ci](https://github.com/tufan-io/error-deets/workflows/action-ci/badge.svg)](https://github.com/tufan-io/error-deets/actions)
 [![NPM](https://nodei.co/npm/error-deets.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/error-deets/)
 <!-- endbadge -->
 
@@ -53,19 +53,17 @@ try {
 ```
 
 ## Development Tooling
-
-- [Development tooling](./docs/DevTools.md)
-[CLOC reports](./.docs/cloc.md)
-- [Changelog](./CHANGELOG.md)
+- [Development tooling](docs/DevTools.md)
+- [CLOC reports](docs/cloc.md)
+- [TODOS](docs/TODOs.md)
+- [Changelog](CHANGELOG.md)
 
 ## License
-
-[Apache-2.0](./LICENSE.md)
+[Apache-2.0](LICENSE.md)
 
 ## Code of Conduct
-
-Please note that this project is released with a [Contributor Code of Conduct](code-of-conduct.md). By participating in this project you agree to abide by its terms.
+This project is released with a [Contributor Code of Conduct](code-of-conduct.md).
+By participating, you agree to abide by its terms.
 
 ## Support
-
 Bugs, PRs, comments, suggestions welcomed!
