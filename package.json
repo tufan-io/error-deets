@@ -157,10 +157,12 @@
       "staged-mods-ok"
     ],
     "postversion": [
-      "changelog"
+      "changelog",
+      "no-mods"
     ],
     "prepublishOnly": [
-      "changelog"
+      "changelog",
+      "no-mods"
     ],
     "pre-commit-hook": [
       "check-coverage",
@@ -200,9 +202,9 @@
   },
   "private": false,
   "simple-ci": {
-    "version": "0.2.19"
+    "version": "0.2.20"
   },
   "devDependencies": {
-    "@tufan-io/simple-ci": "^0.2.19"
+    "@tufan-io/simple-ci": "^0.2.20"
   }
 }
