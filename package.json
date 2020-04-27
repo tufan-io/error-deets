@@ -134,7 +134,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@tufan-io/simple-ci": "^0.3.2"
+    "@tufan-io/simple-ci": "^0.3.3"
   },
   "engines": {
     "node": ">=13.0.0"
