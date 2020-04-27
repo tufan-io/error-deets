@@ -57,6 +57,7 @@ try {
 - [CLOC reports](docs/cloc.md)
 - [TODOS](docs/TODOs.md)
 - [Changelog](CHANGELOG.md)
+- [Security](SECURITY.md)
 
 ## License
 [Apache-2.0](LICENSE.md)

@@ -1,6 +1,7 @@
 {
   "name": "error-deets",
   "version": "1.1.4",
+  "private": false,
   "description": "JavaScript/TypeScript errors with optional details and a code",
   "keywords": [
     "error",
@@ -26,6 +27,7 @@
     "docs"
   ],
   "scripts": {
+    "add-changelog": "git add docs/CHANGELOG.md",
     "build": "npm-run-batch",
     "changelog": "conventional-changelog -p angular -i docs/CHANGELOG.md -s",
     "check-coverage": "nyc check-coverage -x .tmp",
@@ -33,29 +35,32 @@
     "checks": "run-batch",
     "clean": "rimraf dist .nyc_output coverage *.tsbuildinfo",
     "cloc": "run-batch",
+    "cloc-cli": "cloc --exclude-dir=test --quiet --sum-one --hide-rate --unix ./src",
     "cloc-md": "cloc --exclude-dir=test --quiet --sum-one --hide-rate --unix --by-file --md --out=docs/cloc.md ./src",
     "cloc-report": "cloc --exclude-dir=test --quiet --sum-one --hide-rate --unix --out=docs/cloc.report ./src",
-    "cloc_": "cloc --exclude-dir=test --quiet --sum-one --hide-rate --unix ./src",
     "commit": "git-cz",
     "compile": "tsc",
     "compile:watch": "tsc -w",
     "dep-check": "dependency-check . --no-dev",
     "dependency-upgrade": "run-batch",
-    "ensure-bins": "which npm-check git-cz",
+    "fetch-all-tags": "git fetch --all --tags",
     "format": "tsfmt -r",
-    "git-add_": "git add .",
-    "git-commit-upgrade_": "git diff-index --quiet HEAD || git commit -m \"chore: 🤖 updating dependencies\"",
+    "git-add-all": "git add .",
+    "git-push": "git push",
+    "git-push-tags": "git push origin --tags",
+    "git-upgrade-commit": "git diff-index --quiet HEAD || git commit -m \"chore: updating dependencies\"",
     "lint": "tslint -c tslint.json --project ./tsconfig.json --format stylish",
     "no-circular-deps": "madge --circular dist/index.js",
     "no-mods": "git-mods",
     "npm-check_": "npm-check -y",
     "nyc-report": "nyc report --reporter=text-summary",
     "pkg-ok": "pkg-ok",
-    "postversion": "run-batch",
     "pre-commit-hook": "run-batch",
     "pre-push-hook": "run-batch",
+    "prepare": "which npm-check git-cz",
     "prepublishOnly": "run-batch",
-    "qt": "npm-run-batch",
+    "postpublish": "run-batch",
+    "qt": "run-batch",
     "secure": "npm audit",
     "sh": "npm-sh",
     "snapshots": "cross-env NODE_ENV=test ava --verbose --update-snapshots",
@@ -65,14 +70,21 @@
     "test-no-cover": "cross-env NODE_ENV=test ava --verbose",
     "todos": "leasot --exit-nicely --skip-unsupported ./src",
     "todos-md": "leasot --exit-nicely --skip-unsupported --reporter markdown ./src> ./docs/TODOs.md",
-    "upgrade_": "npm upgrade"
+    "upgrade-all": "npm upgrade",
+    "preversion": "run-batch",
+    "version": "conventional-changelog -p angular -i docs/CHANGELOG.md -s && git add docs/CHANGELOG.md"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "npm run pre-commit-hook",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "npm run pre-push-hook"
     }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "config": {
     "commitizen": {
@@ -81,11 +93,6 @@
       },
       "path": "git-cz"
     }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
   },
   "ava": {
     "files": [
@@ -126,6 +133,9 @@
     }
   },
   "dependencies": {},
+  "devDependencies": {
+    "@tufan-io/simple-ci": "^0.3.2"
+  },
   "engines": {
     "node": ">=13.0.0"
   },
@@ -156,18 +166,15 @@
       "pkg-ok",
       "staged-mods-ok"
     ],
-    "postversion": [
-      "changelog",
-      "no-mods"
-    ],
     "prepublishOnly": [
-      "changelog",
       "no-mods"
     ],
     "pre-commit-hook": [
       "check-coverage",
       "dep-check",
       "pkg-ok",
+      "sort-package-json",
+      "no-circular-deps",
       "staged-mods-ok"
     ],
     "pre-push-hook": [
@@ -177,19 +184,24 @@
     "cloc": [
       "cloc-md",
       "cloc-report",
-      "cloc_"
+      "cloc-cli"
     ],
     "dependency-upgrade": [
       "no-mods",
-      "ensure-bins",
-      "sort-package-json",
-      "npm-check_",
-      "upgrade_",
+      "upgrade-all",
       "dep-check",
       "no-circular-deps",
-      "git-add_",
+      "git-add-all",
       "build",
-      "git-commit-upgrade_"
+      "git-upgrade-commit"
+    ],
+    "preversion": [
+      "no-mods",
+      "fetch-all-tags"
+    ],
+    "postpublish": [
+      "git-push",
+      "git-push-tags"
     ],
     "check-run-scripts": [
       "build",
@@ -200,11 +212,7 @@
       "dependency-upgrade"
     ]
   },
-  "private": false,
   "simple-ci": {
-    "version": "0.2.20"
-  },
-  "devDependencies": {
-    "@tufan-io/simple-ci": "^0.2.20"
+    "version": "0.3.2"
   }
 }
