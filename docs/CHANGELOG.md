@@ -1,3 +1,14 @@
+<a name="1.1.8"></a>
+## [1.1.8](https://github.com/tufan-io/error-deets/compare/1.1.7...1.1.8) (2020-05-24)
+
+
+### Bug Fixes
+
+* move from  ->  - windows compatibility ([c015911](https://github.com/tufan-io/error-deets/commit/c015911))
+* moving  -> . windows compatibility ([f5a42e1](https://github.com/tufan-io/error-deets/commit/f5a42e1))
+
+
+
 <a name="1.1.7"></a>
 ## [1.1.7](https://github.com/tufan-io/error-deets/compare/1.1.6...1.1.7) (2020-05-18)
 
