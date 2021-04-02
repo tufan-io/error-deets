@@ -1,3 +1,12 @@
+## [1.1.9](https://github.com/tufan-io/error-deets/compare/1.1.8...1.1.9) (2021-04-02)
+
+
+### Bug Fixes
+
+* move from tslint/tsfmt -> eslint/prettier ([e1133fc](https://github.com/tufan-io/error-deets/commit/e1133fc4074b104d926c2ed6249c6c545bd81e61))
+
+
+
 <a name="1.1.8"></a>
 ## [1.1.8](https://github.com/tufan-io/error-deets/compare/1.1.7...1.1.8) (2020-05-24)
 
