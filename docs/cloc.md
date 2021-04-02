@@ -1,8 +1,8 @@
-cloc|github.com/AlDanial/cloc v 1.85
+cloc|github.com/AlDanial/cloc v 1.88
 --- | ---
 
 File|blank|comment|code
 :-------|-------:|-------:|-------:
-./src/index.ts|3|5|25
+./src/index.ts|1|5|27
 --------|--------|--------|--------
-SUM:|3|5|25
+SUM:|1|5|27

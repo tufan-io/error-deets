@@ -1,8 +1,7 @@
+import test from "ava";
+import { ErrorDeets as Error } from "..";
 
-import test from 'ava';
-import { ErrorDeets as Error } from '..';
-
-test('Use as simple error', t => {
+test("Use as simple error", (t) => {
   try {
     throw new Error(`Simple throwing fun`);
   } catch (err) {
@@ -12,8 +11,7 @@ test('Use as simple error', t => {
   }
 });
 
-
-test('Use as error with details, no code', t => {
+test("Use as error with details, no code", (t) => {
   const details = { a: 1, b: 2 };
   try {
     throw new Error(`Simple throwing fun`, { details });
@@ -24,7 +22,7 @@ test('Use as error with details, no code', t => {
   }
 });
 
-test('Use as error with details and code', t => {
+test("Use as error with details and code", (t) => {
   const details = { a: 1, b: 2 };
   const code = 1234;
   try {
@@ -36,7 +34,7 @@ test('Use as error with details and code', t => {
   }
 });
 
-test('Use as error with code, no details', t => {
+test("Use as error with code, no details", (t) => {
   const code = 1234;
   try {
     throw new Error(`Simple throwing fun`, { code });
