@@ -1,3 +1,7 @@
+## [1.1.10](https://github.com/tufan-io/error-deets/compare/1.1.9...1.1.10) (2021-04-04)
+
+
+
 ## [1.1.9](https://github.com/tufan-io/error-deets/compare/1.1.8...1.1.9) (2021-04-02)
 
 
