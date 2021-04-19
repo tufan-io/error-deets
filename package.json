@@ -1,6 +1,6 @@
 {
   "name": "error-deets",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "private": false,
   "description": "JavaScript/TypeScript errors with optional details and a code",
   "keywords": [
